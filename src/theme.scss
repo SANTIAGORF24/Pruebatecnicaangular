@@ -1,0 +1,112 @@
+/* Tema personalizado para Angular Material con enfoque simplificado */
+@use '@angular/material' as mat;
+
+/* Variables de color primarias */
+$primary-color: #3949ab;  /* Indigo 600 */
+$accent-color: #448aff;   /* Blue A200 */
+$warn-color: #f44336;     /* Red 500 */
+
+/* Configuración manual del tema */
+.mat-mdc-button.mat-primary,
+.mat-mdc-raised-button.mat-primary,
+.mat-mdc-unelevated-button.mat-primary,
+.mat-mdc-outlined-button.mat-primary {
+  --mdc-filled-button-container-color: #{$primary-color};
+  --mdc-filled-button-label-text-color: white;
+  --mdc-outlined-button-label-text-color: #{$primary-color};
+  --mdc-outlined-button-outline-color: #{$primary-color};
+}
+
+.mat-mdc-button.mat-accent,
+.mat-mdc-raised-button.mat-accent,
+.mat-mdc-unelevated-button.mat-accent,
+.mat-mdc-outlined-button.mat-accent {
+  --mdc-filled-button-container-color: #{$accent-color};
+  --mdc-filled-button-label-text-color: white;
+  --mdc-outlined-button-label-text-color: #{$accent-color};
+  --mdc-outlined-button-outline-color: #{$accent-color};
+}
+
+.mat-mdc-button.mat-warn,
+.mat-mdc-raised-button.mat-warn,
+.mat-mdc-unelevated-button.mat-warn,
+.mat-mdc-outlined-button.mat-warn {
+  --mdc-filled-button-container-color: #{$warn-color};
+  --mdc-filled-button-label-text-color: white;
+  --mdc-outlined-button-label-text-color: #{$warn-color};
+  --mdc-outlined-button-outline-color: #{$warn-color};
+}
+
+/* Toolbar */
+.mat-toolbar.mat-primary {
+  background-color: $primary-color;
+  color: white;
+}
+
+.mat-toolbar.mat-accent {
+  background-color: $accent-color;
+  color: white;
+}
+
+.mat-toolbar.mat-warn {
+  background-color: $warn-color;
+  color: white;
+}
+
+/* Progress spinners */
+.mat-progress-spinner.mat-primary circle,
+.mat-spinner.mat-primary circle {
+  stroke: $primary-color;
+}
+
+.mat-progress-spinner.mat-accent circle,
+.mat-spinner.mat-accent circle {
+  stroke: $accent-color;
+}
+
+.mat-progress-spinner.mat-warn circle,
+.mat-spinner.mat-warn circle {
+  stroke: $warn-color;
+}
+
+/* Form fields */
+.mat-mdc-form-field.mat-focused .mdc-notched-outline__leading,
+.mat-mdc-form-field.mat-focused .mdc-notched-outline__notch,
+.mat-mdc-form-field.mat-focused .mdc-notched-outline__trailing {
+  border-color: $primary-color !important;
+}
+
+.mat-mdc-form-field.mat-focused.mat-accent .mdc-notched-outline__leading,
+.mat-mdc-form-field.mat-focused.mat-accent .mdc-notched-outline__notch,
+.mat-mdc-form-field.mat-focused.mat-accent .mdc-notched-outline__trailing {
+  border-color: $accent-color !important;
+}
+
+.mat-mdc-form-field.mat-focused.mat-warn .mdc-notched-outline__leading,
+.mat-mdc-form-field.mat-focused.mat-warn .mdc-notched-outline__notch,
+.mat-mdc-form-field.mat-focused.mat-warn .mdc-notched-outline__trailing {
+  border-color: $warn-color !important;
+}
+
+/* Checkbox */
+.mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background,
+.mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control:enabled:indeterminate ~ .mdc-checkbox__background {
+  background-color: $primary-color !important;
+  border-color: $primary-color !important;
+}
+
+/* Badge */
+.mat-badge-content {
+  background-color: $accent-color;
+  color: white;
+}
+
+/* Radio buttons */
+.mat-mdc-radio-button.mat-primary .mdc-radio__background .mdc-radio__outer-circle,
+.mat-mdc-radio-button.mat-primary .mdc-radio__background .mdc-radio__inner-circle {
+  border-color: $primary-color !important;
+}
+
+.mat-mdc-radio-button.mat-primary.mat-mdc-radio-checked .mdc-radio__background .mdc-radio__inner-circle {
+  background-color: $primary-color !important;
+} 

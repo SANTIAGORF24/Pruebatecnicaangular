@@ -1,1 +1,168 @@
-/* You can add global styles to this file, and also import other style files */
+@import './theme.scss';
+
+html, body { height: 100%; }
+body { 
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif; 
+  @apply bg-gray-50;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
+}
+
+.mat-toolbar.mat-primary {
+  @apply bg-indigo-600 text-white !important;
+}
+
+.mat-mdc-raised-button.mat-primary, 
+.mat-mdc-raised-button[color="primary"] {
+  @apply bg-indigo-600 text-white !important;
+}
+
+.mat-mdc-form-field-infix {
+  width: auto !important;
+}
+
+.mdc-text-field {
+  @apply w-full !important;
+}
+
+.mat-mdc-form-field-flex {
+  @apply items-center !important;
+}
+
+.mat-mdc-form-field-icon-prefix {
+  @apply mr-2 !important;
+}
+
+.mat-mdc-card {
+  @apply rounded-lg shadow-md !important;
+  --mdc-elevated-card-container-color: transparent;
+}
+
+.mat-mdc-card-content {
+  @apply p-5 !important;
+}
+
+.mat-toolbar {
+  @apply px-4 py-2 !important;
+}
+
+.mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background,
+.mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control:enabled:indeterminate ~ .mdc-checkbox__background {
+  @apply bg-indigo-600 border-indigo-600 !important;
+}
+
+.mat-mdc-form-field.mat-focused .mat-mdc-form-field-ripple {
+  @apply bg-indigo-600 !important;
+}
+
+.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__leading,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__notch,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__trailing {
+  @apply border-indigo-600 !important;
+}
+
+.mat-mdc-button, 
+.mat-mdc-raised-button, 
+.mat-mdc-outlined-button, 
+.mat-mdc-unelevated-button {
+  @apply rounded-lg font-medium !important;
+}
+
+.mat-mdc-menu-panel {
+  @apply max-w-none !important;
+}
+
+.mat-mdc-card {
+  border-radius: 0.5rem !important;
+  overflow: hidden;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06) !important;
+}
+
+.mat-mdc-card-header {
+  padding: 1rem 1.5rem !important;
+}
+
+.mat-mdc-card-content {
+  padding: 1.5rem !important;
+}
+
+.mat-mdc-checkbox label {
+  margin-bottom: 0 !important;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+}
+
+.mdc-text-field--filled:hover:not(.mdc-text-field--disabled) {
+  background-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+.mdc-text-field--focused:not(.mdc-text-field--disabled) {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+}
+
+.mat-mdc-form-field-icon-prefix,
+.mat-mdc-form-field-icon-suffix {
+  align-self: center !important;
+}
+
+.mat-badge-content {
+  font-weight: 600 !important;
+}
+
+.full-screen-container {
+  min-height: 100vh;
+  @apply flex items-center justify-center bg-gray-50;
+}
+
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+.mat-mdc-progress-spinner.mat-primary circle {
+  stroke: #4F46E5 !important;
+}
+
+.mat-mdc-form-field {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.mat-mdc-form-field-subscript-wrapper {
+  height: auto !important;
+}
+
+.mdc-button {
+  height: auto !important;
+  padding: 0.5rem 1.25rem !important;
+}
+
+button.mat-mdc-raised-button.mat-primary {
+  padding: 0.5rem 1.25rem !important;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+}

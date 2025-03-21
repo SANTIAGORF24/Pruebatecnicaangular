@@ -1,0 +1,190 @@
+<div class="flex flex-col min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+  <mat-toolbar color="primary" class="shadow-md mat-elevation-z4">
+    <div class="container mx-auto px-4 flex items-center justify-between w-full">
+      <div class="flex items-center">
+        <mat-icon class="mr-2">dashboard</mat-icon>
+        <span class="text-xl font-semibold">Panel de Control</span>
+      </div>
+      
+      <div class="flex items-center space-x-4">
+        <button 
+          mat-icon-button 
+          aria-label="Notificaciones"
+        >
+          <mat-icon matBadge="3" matBadgeColor="warn" matBadgeSize="small">notifications</mat-icon>
+        </button>
+        
+        <button mat-button [matMenuTriggerFor]="userMenu">
+          <span class="flex items-center">
+            <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center mr-2">
+              <mat-icon class="text-indigo-600">person</mat-icon>
+            </div>
+            <span class="hidden sm:inline">{{ user?.firstName }} {{ user?.lastName }}</span>
+            <mat-icon>keyboard_arrow_down</mat-icon>
+          </span>
+        </button>
+        
+        <mat-menu #userMenu="matMenu">
+          <div class="p-4 w-64 border-b">
+            <div class="font-medium mb-1">{{ user?.firstName }} {{ user?.lastName }}</div>
+            <div class="text-sm text-gray-500 truncate">{{ user?.email }}</div>
+          </div>
+          
+          <button mat-menu-item>
+            <mat-icon class="mr-3">account_circle</mat-icon>
+            <span>Mi Perfil</span>
+          </button>
+          
+          <button mat-menu-item>
+            <mat-icon class="mr-3">settings</mat-icon>
+            <span>Configuración</span>
+          </button>
+          
+          <mat-divider></mat-divider>
+          
+          <button mat-menu-item (click)="logout()">
+            <mat-icon class="mr-3 text-red-500">exit_to_app</mat-icon>
+            <span class="text-red-600">Cerrar Sesión</span>
+          </button>
+        </mat-menu>
+      </div>
+    </div>
+  </mat-toolbar>
+
+  <main class="container mx-auto px-4 sm:px-6 py-6 flex-1">
+    <mat-card class="mb-6 mat-elevation-z2">
+      <div class="bg-gradient-to-r from-indigo-600 to-indigo-700 px-6 py-5 text-white">
+        <h1 class="text-xl sm:text-2xl font-semibold">Bienvenido, {{ user?.firstName }}!</h1>
+        <p class="text-indigo-100 text-sm mt-1">Has iniciado sesión correctamente en tu cuenta</p>
+      </div>
+      
+      <mat-card-content class="p-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="bg-white rounded-xl border border-gray-100 p-4 shadow-sm hover:shadow-md transition-all duration-200">
+            <div class="flex items-center">
+              <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4 shadow-sm">
+                <mat-icon class="text-indigo-600">person</mat-icon>
+              </div>
+              <div>
+                <div class="text-xs text-gray-500">Usuario</div>
+                <div class="font-medium text-gray-800">{{ user?.username }}</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-xl border border-gray-100 p-4 shadow-sm hover:shadow-md transition-all duration-200">
+            <div class="flex items-center">
+              <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4 shadow-sm">
+                <mat-icon class="text-blue-600">email</mat-icon>
+              </div>
+              <div>
+                <div class="text-xs text-gray-500">Email</div>
+                <div class="font-medium text-gray-800 truncate max-w-[150px]">{{ user?.email }}</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-xl border border-gray-100 p-4 shadow-sm hover:shadow-md transition-all duration-200">
+            <div class="flex items-center">
+              <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center mr-4 shadow-sm">
+                <mat-icon class="text-purple-600">badge</mat-icon>
+              </div>
+              <div>
+                <div class="text-xs text-gray-500">ID</div>
+                <div class="font-medium text-gray-800">{{ user?.id }}</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-xl border border-gray-100 p-4 shadow-sm hover:shadow-md transition-all duration-200">
+            <div class="flex items-center">
+              <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mr-4 shadow-sm">
+                <mat-icon class="text-green-600">verified_user</mat-icon>
+              </div>
+              <div>
+                <div class="text-xs text-gray-500">Estado</div>
+                <div class="font-medium text-gray-800">Activo</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    
+    <mat-card class="shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
+      <mat-card-header class="border-b px-6 py-4">
+        <mat-card-title class="text-lg font-medium text-gray-800">Perfil de Usuario</mat-card-title>
+      </mat-card-header>
+      
+      <mat-card-content class="p-6">
+        <div class="flex flex-col md:flex-row">
+          <div class="md:w-1/3 mb-6 md:mb-0 flex flex-col items-center">
+            <div class="w-32 h-32 rounded-full bg-indigo-50 flex items-center justify-center mb-4 shadow-md">
+              <mat-icon style="font-size: 48px; width: 48px; height: 48px;" class="text-indigo-500">account_circle</mat-icon>
+            </div>
+            <h3 class="text-lg font-medium text-gray-800">{{ user?.firstName }} {{ user?.lastName }}</h3>
+            <p class="text-gray-500 text-sm">{{ user?.email }}</p>
+            <button mat-stroked-button color="primary" class="mt-4">
+              <mat-icon class="mr-2">edit</mat-icon> Editar Perfil
+            </button>
+          </div>
+          
+          <div class="md:w-2/3 md:pl-8 md:border-l">
+            <h3 class="text-lg font-medium mb-4 pb-2 border-b text-gray-800">Detalles de la Cuenta</h3>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-8">
+              <div class="bg-gray-50 p-3 rounded-lg">
+                <p class="text-sm text-gray-500 mb-1">Nombre</p>
+                <p class="font-medium text-gray-800">{{ user?.firstName }}</p>
+              </div>
+              
+              <div class="bg-gray-50 p-3 rounded-lg">
+                <p class="text-sm text-gray-500 mb-1">Apellido</p>
+                <p class="font-medium text-gray-800">{{ user?.lastName }}</p>
+              </div>
+              
+              <div class="bg-gray-50 p-3 rounded-lg">
+                <p class="text-sm text-gray-500 mb-1">Usuario</p>
+                <p class="font-medium text-gray-800">{{ user?.username }}</p>
+              </div>
+              
+              <div class="bg-gray-50 p-3 rounded-lg">
+                <p class="text-sm text-gray-500 mb-1">Correo Electrónico</p>
+                <p class="font-medium text-gray-800">{{ user?.email }}</p>
+              </div>
+              
+              <div class="bg-gray-50 p-3 rounded-lg">
+                <p class="text-sm text-gray-500 mb-1">ID de Usuario</p>
+                <p class="font-medium text-gray-800">{{ user?.id }}</p>
+              </div>
+              
+              <div class="bg-gray-50 p-3 rounded-lg">
+                <p class="text-sm text-gray-500 mb-1">Tipo de Cuenta</p>
+                <p class="font-medium text-gray-800">
+                  <span class="flex items-center">
+                    {{ user?.id === 1 ? 'Administrador' : 'Usuario Estándar' }}
+                    <span *ngIf="user?.id === 1" class="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-indigo-100 text-indigo-800">
+                      Admin
+                    </span>
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="mt-6 bg-white shadow-md border border-gray-100 transform transition-all hover:shadow-lg">
+      <mat-card-content class="p-5">
+        <p class="text-sm font-medium text-gray-700 mb-3">Credenciales de demostración:</p>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm">
+          <div class="text-gray-600 font-medium">Usuario:</div>
+          <div class="font-bold text-indigo-700">admin</div>
+          <div class="text-gray-600 font-medium">Contraseña:</div>
+          <div class="font-bold text-indigo-700">Admin&#64;123</div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </main>
+</div>
